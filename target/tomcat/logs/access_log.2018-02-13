@@ -1,0 +1,10 @@
+0:0:0:0:0:0:0:1 - - [13/Feb/2018:13:15:27 +0530] "GET /?title=&title=hjgj&author=hjuhg&price=475456 HTTP/1.1" 200 5291 http-bio-9090-exec-1 947
+0:0:0:0:0:0:0:1 - - [13/Feb/2018:13:15:27 +0530] "GET /list HTTP/1.1" 200 116 http-bio-9090-exec-3 323
+0:0:0:0:0:0:0:1 - - [13/Feb/2018:13:15:33 +0530] "GET /edit?id=125 HTTP/1.1" 200 56 http-bio-9090-exec-4 20
+0:0:0:0:0:0:0:1 - - [13/Feb/2018:13:15:39 +0530] "GET /?title=125&title=kjkj&author=fdfd&price=22 HTTP/1.1" 200 5291 http-bio-9090-exec-6 7
+0:0:0:0:0:0:0:1 - - [13/Feb/2018:13:15:39 +0530] "GET /list HTTP/1.1" 200 116 http-bio-9090-exec-7 10
+0:0:0:0:0:0:0:1 - - [13/Feb/2018:13:15:39 +0530] "GET /insert?title=kjkj&author=fdfd&price=22 HTTP/1.1" 200 - http-bio-9090-exec-5 188
+0:0:0:0:0:0:0:1 - - [13/Feb/2018:13:15:45 +0530] "GET /edit?id=125 HTTP/1.1" 200 56 http-bio-9090-exec-8 17
+0:0:0:0:0:0:0:1 - - [13/Feb/2018:13:15:50 +0530] "GET /?title=125&title=kjkkjyuk&author=fdfd&price=22 HTTP/1.1" 200 5291 http-bio-9090-exec-1 2
+0:0:0:0:0:0:0:1 - - [13/Feb/2018:13:15:50 +0530] "GET /list HTTP/1.1" 200 175 http-bio-9090-exec-1 52
+0:0:0:0:0:0:0:1 - - [13/Feb/2018:13:15:50 +0530] "GET /insert?title=kjkkjyuk&author=fdfd&price=22 HTTP/1.1" 302 - http-bio-9090-exec-10 210
