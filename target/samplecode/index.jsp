@@ -35,13 +35,20 @@ pageEncoding="UTF-8"%>
                         
                    });
                    $("#inserting").click(function(){
+                       var id=$("#idid").val();
                        var title=$("#idtitle").val();
                        var author=$("#idauthor").val();
                        var price=$("#idprice").val();
-                       
+                       if(id==nul){
                        $.get('insert',{title:title,author:author,price:price},function(){
-
+                               alert("inserted");
                        });
+                       }
+                       else {
+                        $.get('edit',{title:title,author:author,price:price},function(){
+                               alert("update");
+                       }); 
+                       }
                    });
                    
 });
