@@ -26,7 +26,7 @@ pageEncoding="UTF-8"%>
                      //var value=
                         rowNew.children().eq(4).append("<button onclick='update("+value['id']+")'>edit</button>");
                        // rowNew.children().eq(5).append('<button id="edit" aedit="'+value['id']+'" >edit</button>');
-                        rowNew.children().eq(5).append('<a href="/book/delete?code='+value['id']+'" >delete</a>');
+                        rowNew.children().eq(5).append('<a href="delete?code='+value['id']+'" >delete</a>');
                         rowNew.appendTo(table1);
                     
 });
@@ -35,18 +35,20 @@ pageEncoding="UTF-8"%>
                         
                    });
                    $("#inserting").click(function(){
+                       alert("sampleat ")
                        var id=$("#idid").val();
                        var title=$("#idtitle").val();
                        var author=$("#idauthor").val();
                        var price=$("#idprice").val();
-                       if(id==nul){
-                       $.get('insert',{title:title,author:author,price:price},function(){
-                               alert("inserted");
+                       
+                       if(id!=''){alert("gets");
+                       $.get('update',{id:id,title:title,author:author,price:price},function(){
+                               alert("insert");
                        });
                        }
                        else {
-                        $.get('edit',{title:title,author:author,price:price},function(){
-                               alert("update");
+                        $.get('insert',{title:title,author:author,price:price},function(responseJson){
+                               alert("edit");
                        }); 
                        }
                    });

@@ -31,9 +31,16 @@ protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws S
                 insertbook(req,resp);
                  break;
        case "/edit":
-               System.out.println("sample");
+       
                updatebook(req,resp);
                break;
+        case "/update":
+        
+                updatefeild(req,resp);
+                break;
+        case "/delete":
+                 deleteFeild(req,resp);
+                 break;
         default:
        
                 listbook(req,resp);
@@ -45,6 +52,20 @@ catch(SQLException e){
     e.printStackTrace();
 }
 }
+private void deleteFeild(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
+    new BookDAO().deletBook(new Book(Integer.parseInt(req.getParameter("code"))));
+    resp.sendRedirect("/");
+}
+private void updatefeild(HttpServletRequest req, HttpServletResponse resp) throws IOException, SQLException {
+    int id=Integer.parseInt(req.getParameter("id"));
+    String title=req.getParameter("title");
+    String author=req.getParameter("author");
+    Float price=Float.parseFloat(req.getParameter("price"));
+    Book book=new Book(id,title,author,price);
+    BookDAO bookDAO=new BookDAO();
+    bookDAO.updateFeild(book);
+    resp.sendRedirect("/");
+}
 private void updatebook(HttpServletRequest req, HttpServletResponse resp) throws SQLException, IOException {
     Book book=new Book(Integer.parseInt(req.getParameter("id")));
    BookDAO bookDAO=new BookDAO();
@@ -55,7 +76,7 @@ private void updatebook(HttpServletRequest req, HttpServletResponse resp) throws
    JsonElement ele=gson.toJsonTree(al,new TypeToken<List<Book>>(){}.getType());
    JsonArray j=ele.getAsJsonArray();
    resp.setContentType("application/json");
-   System.out.println(j);
+ 
    resp.getWriter().print(j);
 
 
@@ -77,7 +98,7 @@ private void listbook(HttpServletRequest req, HttpServletResponse resp) throws S
     JsonElement element=gson.toJsonTree(listBook,new TypeToken<List<Book>>() {}.getType());
     JsonArray jsonArray=element.getAsJsonArray();
     resp.setContentType("application/json");
-    System.out.println(jsonArray);
+    
     resp.getWriter().print(jsonArray);
 }
 }

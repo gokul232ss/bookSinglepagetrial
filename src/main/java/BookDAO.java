@@ -61,4 +61,24 @@ public Book updatebook(Book book) throws SQLException {
 	return b;
 }
 
+public void updateFeild(Book book) throws SQLException {
+   connect();
+   
+   PreparedStatement ps=jdbcConnection.prepareStatement("UPDATE `book` SET `title`=?,`author`=?,`price`=? WHERE book_id=?");
+   ps.setString(1, book.getTitle());
+   ps.setString(2, book.getAuthor());
+   ps.setFloat(3, book.getPrice());
+   ps.setInt(4, book.getId());
+   boolean sa=ps.executeUpdate()>0;
+   
+
+}
+
+public  void deletBook(Book book) throws SQLException {
+    connect();
+    PreparedStatement ps=jdbcConnection.prepareStatement("DELETE FROM `book` WHERE book_id=?");
+    ps.setInt(1, book.getId());
+    ps.executeUpdate();
+}
+
 }
